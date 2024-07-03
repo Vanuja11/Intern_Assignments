@@ -1,0 +1,4 @@
+Filename | Word Count
+file1.txt | 12
+file2.txt | 8
+file3.txt | 4
