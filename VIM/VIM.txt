@@ -1,0 +1,44 @@
+Normal mode: Used for navigating and manipulating text.
+Insert mode: Used for inserting text.
+Visual mode: Used for selecting blocks of text.
+Command-line mode: Used for executing commands.
+
+-Normal Mode: When you can navigate the file with h, j, k, l and use other commands like dd (delete a line), you are in normal mode.
+
+-Insert Mode: When you are able to type text into the file, you are in insert mode. You can enter insert mode by pressing i in normal mode.
+
+-Visual Mode: When you can select text visually, you are in visual mode. You can enter visual mode by pressing v in normal mode.
+
+---NAVIGATION---
+
+h: Move left
+j: Move down
+k: Move up
+l: Move right
+w: Move to the start of the next word
+b: Move to the start of the previous word
+0: Move to the beginning of the line
+$: Move to the end of the line
+
+---EDITING---
+
+x: Delete the character under the cursor
+dd: Delete the current line
+yy: Yank (copy) the current line
+p: Paste after the cursor
+u: Undo the last change
+Ctrl-r: Redo the last undone change
+
+---SAVING AND EXITING---
+
+:w: Save the file (write)
+:q: Quit Vim
+:wq: Save and quit
+:q!: Quit without saving changes
+
+
+Append Mode:(Press A or a)
+Replace Mode:(Press r )
+Visual Mode (Press v)
+
+
