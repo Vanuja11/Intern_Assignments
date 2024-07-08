@@ -37,4 +37,10 @@ db.Employees.countDocuments({sbu: "CORE"})
 db.Employees.find({employee_last_name: {$regex: /yake$/i}}, {_id: 0, employee_id: 1, employee_first_name: 1, employee_last_name: 1})
 
 
+#Obtain a dump of this database
+mongodump --db hSenid --out ./mongodump
+
+#--out ./mongodump: Specifies the output directory where the dump files will be stored.
+# In this example, it will create a directory named mongodump in the current working directory and store the dump files there.
+# -->mongodump --db hSenid --out ./mongodump
 
