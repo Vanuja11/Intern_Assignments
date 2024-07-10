@@ -9,5 +9,6 @@
 //property rights in these materials.
 package Assignment_6
 
-class Book {
+open class Book(val title: String, val author: String) {
+
 }

@@ -9,5 +9,8 @@
 //property rights in these materials.
 package Assignment_5
 
-class Rectangle {
+class Rectangle(val width: Double, val height: Double) : Shape {
+    override fun area(): Double {
+        return width * height
+    }
 }

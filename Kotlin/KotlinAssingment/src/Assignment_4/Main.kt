@@ -9,3 +9,11 @@
 //property rights in these materials.
 package Assignment_4
 
+fun main() {
+    val person1 = Person("John", 10)
+    val student1 = Student("Vanuja", 21, "Ananda")
+
+    println("${person1.name} is ${person1.age} years old.")
+    println("${student1.name} is ${student1.age} years old and learns at " +
+            "${student1.property} college.")
+}

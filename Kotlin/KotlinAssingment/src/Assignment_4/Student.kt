@@ -9,5 +9,5 @@
 //property rights in these materials.
 package Assignment_4
 
-class Student {
+class Student(name: String, age: Int, val property: String): Person(name, age) {
 }

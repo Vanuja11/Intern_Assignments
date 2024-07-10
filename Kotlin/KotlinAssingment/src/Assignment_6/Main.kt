@@ -9,3 +9,21 @@
 //property rights in these materials.
 package Assignment_6
 
+
+object MathUtility {
+    fun factorial(n: Int): Long {
+        return if (n == 0) 1 else n * factorial(n - 1)
+    }
+}
+
+
+fun main() {
+    val book1 = object : Book("Kotlin easy", "K. John") {
+
+    }
+    println("'${book1.author}' is the author of the book '${book1.title}'")
+    println()
+
+    val num: Int = 5
+    println("The factorial of $num is ${MathUtility.factorial(num)}")
+}

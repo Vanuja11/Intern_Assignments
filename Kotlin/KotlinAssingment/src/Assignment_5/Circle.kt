@@ -9,5 +9,9 @@
 //property rights in these materials.
 package Assignment_5
 
-class Circle {
+class Circle(val radius: Double) : Shape {
+
+    override fun area(): Double {
+        return Math.PI * radius * radius
+    }
 }
