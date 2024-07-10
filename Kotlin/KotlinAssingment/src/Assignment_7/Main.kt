@@ -18,9 +18,9 @@ enum class Color(val rgb: Int) {
     WHITE(0xFFFFFF);
 }
 
-sealed class Result {
-    data class Success(val message: String) : Result()
-    data class Error(val message: String) : Result()
+sealed class Result(val x: String) {
+    class Success : Result("Success")
+    class Error : Result("Error")
 }
 
 fun main() {
@@ -28,16 +28,13 @@ fun main() {
     println("Color: ${color.name}")
 
     println()
-    val successResult: Result = Result.Success("Success")
-    val errorResult: Result = Result.Error("Error")
 
     fun printResult(result: Result) {
         when(result) {
-            is Result.Success -> println(successResult)
-            is Result.Error -> println(errorResult)
+            is Result.Success -> println("SUCCESS")
+            is Result.Error -> println("FAILED")
         }
     }
-
-    printResult(successResult)
-    printResult(errorResult)
+    printResult(Result.Success())
+    printResult(Result.Error())
 }
