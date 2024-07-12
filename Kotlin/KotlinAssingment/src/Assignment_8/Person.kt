@@ -19,10 +19,13 @@ data class Person(val name: String, val age: Int) {
     }
 }
 
+
+
 fun main() {
     val person1 = Person("Vanuja", 21)
     val person2 = Person("Dilion", 20)
     val person3 = Person("John", 2024)
+
 
     val people: List<Person> = listOf(person1, person2, person3)
 
