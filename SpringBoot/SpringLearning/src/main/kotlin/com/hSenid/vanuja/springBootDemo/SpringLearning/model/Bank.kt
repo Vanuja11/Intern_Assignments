@@ -7,15 +7,10 @@
 //
 //hSenid Software International (Pvt) Limited retains all title to and intellectual
 //property rights in these materials.
-package com.hSenid.vanuja.springBootDemo.SpringLearning
+package com.hSenid.vanuja.springBootDemo.SpringLearning.model
 
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
-
-@RestController
-@RequestMapping("api/hello")
-class HelloWorldController {
-    @GetMapping
-    fun helloWorld(): String = "Hello, This is  a REST endpoint!"
-}
+data class Bank(
+    val accountNumber: String,
+    val trust: Double,
+    val transactionFee: Int
+)
