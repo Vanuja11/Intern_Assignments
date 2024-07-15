@@ -89,4 +89,9 @@ fun main() {
     }
 
     println(bio)
+
+    println("getters and setters")
+    println(person.name)
+    person.name = "asdfasdfasdf"
+    println(person.name)
 }
