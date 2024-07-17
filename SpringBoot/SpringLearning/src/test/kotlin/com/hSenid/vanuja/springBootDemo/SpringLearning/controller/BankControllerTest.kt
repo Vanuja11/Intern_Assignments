@@ -14,6 +14,7 @@ import org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPat
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.get
 import org.springframework.http.MediaType
+import org.springframework.test.web.servlet.patch
 import org.springframework.test.web.servlet.post
 
 @SpringBootTest
@@ -98,11 +99,20 @@ internal class BankControllerTest @Autowired constructor(
                 .andDo { print() }
                 .andExpect {
                     status { isCreated() }
-                    content { contentType(MediaType.APPLICATION_JSON) }
-                    jsonPath("$.accountNumber") { value("acc123") }
-                    jsonPath("$.trust") { value("31.415") }
-                    jsonPath("$.transactionFee") { value("2") }
+                    content {
+                        contentType(MediaType.APPLICATION_JSON)
+                        json(objectMapper.writeValueAsString(newBank))
+                    }
+//                    jsonPath("$.accountNumber") { value("acc123") }
+//                    jsonPath("$.trust") { value("31.415") }
+//                    jsonPath("$.transactionFee") { value("2") }
+
             }
+
+            mockMvc.get("$baseURL/${newBank.accountNumber}")
+                .andExpect {
+                    content { json(objectMapper.writeValueAsString(newBank)) }
+                }
         }
 
         @Test
@@ -122,4 +132,40 @@ internal class BankControllerTest @Autowired constructor(
                 .andExpect { status { isBadRequest() } }
         }
     }
+
+    @Nested
+    @DisplayName("PATCH /api/banks")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class PatchExisitngBank {
+
+        @Test
+        fun `should update an existing bank` () {
+            // given
+            val updateBank = Bank("1234", 1.0, 1)
+
+            // when
+            val perfromPatchRequest = mockMvc.patch(baseURL) {
+                contentType = MediaType.APPLICATION_JSON
+                content = objectMapper.writeValueAsString(updateBank)
+            }
+
+            // then
+            perfromPatchRequest
+                .andDo { print() }
+                .andExpect {
+                    status { isOk() }
+                    content {
+                        contentType(MediaType.APPLICATION_JSON)
+                        json(objectMapper.writeValueAsString(updateBank))
+                    }
+                }
+
+            mockMvc.get("$baseURL/${updateBank.accountNumber}")
+                .andExpect {
+                    content { json(objectMapper.writeValueAsString(updateBank)) }
+                }
+        }
+
+    }
+
 }
