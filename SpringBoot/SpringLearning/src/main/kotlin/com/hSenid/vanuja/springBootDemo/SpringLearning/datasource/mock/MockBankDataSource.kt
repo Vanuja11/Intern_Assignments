@@ -1,7 +1,7 @@
 //(C) Copyright 2008-2019 hSenid Software International (Pvt) Limited.
 //All Rights Reserved.
 //
-//These materials are unpublished, proprietary, confidential source code of
+//These materials are unpuretrivingblished, proprietary, confidential source code of
 //hSenid Software International (Pvt) Limited and constitute a TRADE SECRET
 //of hSenid Software International (Pvt) Limited.
 //
@@ -13,11 +13,29 @@ import com.hSenid.vanuja.springBootDemo.SpringLearning.datasource.BankDataSource
 import com.hSenid.vanuja.springBootDemo.SpringLearning.model.Bank
 import org.springframework.stereotype.Repository
 
-//@Repositary means this class is responsible for retriving data and storing data so and so
+//@Repository means this class is responsible for retrieving data and storing data so-and-so
 @Repository
 class MockBankDataSource : BankDataSource {
 
-    override fun getBanks(): Collection<Bank> {
-        return emptyList()
+    val banks = mutableListOf(
+        Bank("1234", 3.14, 17),
+        Bank("1010", 17.0, 0),
+        Bank("5678", 0.0, 100)
+    )
+
+    override fun retrieveBanks(): Collection<Bank> = banks
+
+    override fun retrieveBank(accountNumber: String): Bank {
+        return banks.firstOrNull() { it.accountNumber == accountNumber }
+            ?: throw NoSuchElementException("Could not find a bank with account number $accountNumber")
+    }
+
+    override fun createBank(bank: Bank): Bank {
+        if (banks.any { it.accountNumber == bank.accountNumber }) {
+            throw IllegalArgumentException("Bank with account number ${bank.accountNumber} already exists")
+        }
+        banks.add(bank)
+
+        return  bank
     }
 }

@@ -4,5 +4,10 @@ import com.hSenid.vanuja.springBootDemo.SpringLearning.model.Bank
 
 interface BankDataSource {
 
-    fun getBanks(): Collection<Bank>
+    // returns a collection of bank entities
+    fun retrieveBanks(): Collection<Bank>
+
+    fun retrieveBank(accountNumber: String): Bank
+
+    fun createBank(bank: Bank): Bank
 }
