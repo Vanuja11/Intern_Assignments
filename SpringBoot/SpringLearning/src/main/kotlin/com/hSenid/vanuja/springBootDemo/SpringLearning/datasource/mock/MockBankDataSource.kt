@@ -12,6 +12,7 @@ package com.hSenid.vanuja.springBootDemo.SpringLearning.datasource.mock
 import com.hSenid.vanuja.springBootDemo.SpringLearning.datasource.BankDataSource
 import com.hSenid.vanuja.springBootDemo.SpringLearning.model.Bank
 import org.springframework.stereotype.Repository
+import kotlin.reflect.jvm.internal.ReflectProperties.Val
 
 //@Repository means this class is responsible for retrieving data and storing data so-and-so
 @Repository
@@ -47,5 +48,14 @@ class MockBankDataSource : BankDataSource {
         banks.add(bank)
 
         return bank
+    }
+
+    override fun deleteBank(accountNumber: String) {
+        val currentBank = banks.firstOrNull() { it.accountNumber == accountNumber }
+            ?: throw NoSuchElementException("Could not find a bank with account number $accountNumber")
+
+        banks.remove(currentBank)
+
+
     }
 }
