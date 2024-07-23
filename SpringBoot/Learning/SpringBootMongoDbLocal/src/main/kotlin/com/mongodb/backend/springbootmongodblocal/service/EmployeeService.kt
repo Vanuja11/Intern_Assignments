@@ -20,6 +20,7 @@ class EmployeeService(private val repository: EmployeeRepo) {
     fun findAll(): List<Employee> = repository.findAll()
 
     fun findById(id: String): Employee? = repository.findById(id).orElse(null)
+//    fun findById(id: String): Employee = repository.findById(id)
 
     fun save(employee: Employee): Employee = repository.save(employee)
 

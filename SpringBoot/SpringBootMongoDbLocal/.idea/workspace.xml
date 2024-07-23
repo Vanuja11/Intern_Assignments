@@ -5,53 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3426cbe2-8642-492c-817f-0e20e0842354" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../HelloBackendWorld/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloBackendWorld/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloBackendWorld/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloBackendWorld/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloBackendWorld/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloBackendWorld/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloBackendWorld/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloBackendWorld/src/main/kotlin/com/mongodb/backend/hellobackendworld/HelloBackendWorldApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloBackendWorld/src/main/kotlin/com/mongodb/backend/hellobackendworld/controller/RestaurantController.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloBackendWorld/src/main/kotlin/com/mongodb/backend/hellobackendworld/datasource/Repo.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloBackendWorld/src/main/kotlin/com/mongodb/backend/hellobackendworld/model/Restaurant.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloBackendWorld/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloBackendWorld/src/test/kotlin/com/mongodb/backend/hellobackendworld/HelloBackendWorldApplicationTests.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/mongodb/backend/springbootmongodblocal/SpringBootMongoDbLocalApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/mongodb/backend/springbootmongodblocal/controller/EmployeeController.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/mongodb/backend/springbootmongodblocal/model/Employee.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/mongodb/backend/springbootmongodblocal/repository/EmployeeRepo.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/mongodb/backend/springbootmongodblocal/service/EmployeeService.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/mongodb/backend/springbootmongodblocal/SpringBootMongoDbLocalApplicationTests.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/src/main/kotlin/com/hSenid/vanuja/springBootDemo/SpringLearning/HelloWorldController.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/src/main/kotlin/com/hSenid/vanuja/springBootDemo/SpringLearning/SpringLearningApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/src/main/kotlin/com/hSenid/vanuja/springBootDemo/SpringLearning/controller/BankController.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/src/main/kotlin/com/hSenid/vanuja/springBootDemo/SpringLearning/datasource/BankDataSource.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/src/main/kotlin/com/hSenid/vanuja/springBootDemo/SpringLearning/datasource/mock/MockBankDataSource.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/src/main/kotlin/com/hSenid/vanuja/springBootDemo/SpringLearning/model/Bank.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/src/main/kotlin/com/hSenid/vanuja/springBootDemo/SpringLearning/service/BankService.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/src/main/resources/static/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/src/test/kotlin/com/hSenid/vanuja/springBootDemo/SpringLearning/SpringLearningApplicationTests.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/src/test/kotlin/com/hSenid/vanuja/springBootDemo/SpringLearning/controller/BankControllerTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/src/test/kotlin/com/hSenid/vanuja/springBootDemo/SpringLearning/datasource/mock/MockBankDataSourceTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringLearning/src/test/kotlin/com/hSenid/vanuja/springBootDemo/SpringLearning/service/BankServiceTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +17,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SpringBootMongoDbLocal" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -74,9 +46,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2jaPIMkcfMdsCB69hUSaQrwScBQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -93,6 +65,7 @@
     "Spring Boot.SpringBootMongoDbLocalApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/vanuja/Documents/Intern_Assignments/SpringBoot/Learning/SpringBootMongoDbLocal",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -117,16 +90,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SpringBootMongoDbLocalApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="SpringBootMongoDbLocal.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.mongodb.backend.springbootmongodblocal.SpringBootMongoDbLocalApplication" />
@@ -152,6 +115,7 @@
       <option name="presentableId" value="Default" />
       <updated>1721622136054</updated>
       <workItem from="1721622137180" duration="4639000" />
+      <workItem from="1721638446114" duration="156000" />
     </task>
     <servers />
   </component>
