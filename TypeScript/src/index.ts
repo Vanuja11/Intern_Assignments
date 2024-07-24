@@ -20,7 +20,55 @@ let user: {firstName: string, age: number, id: number} = {
     firstName: 'mario', 
     age: 30,
     id: 1,
-
 }
 
+user.firstName = 'peach'
+user.id = 2
 
+
+// type inference with object literals
+
+let person = {
+    name: 'luigi',
+    score: 35,
+}
+
+person.name = 'bowser'
+person.score = 40
+
+// console.log("--FUNCTIONS--")
+
+function addTwoNumbers(a: number, b: number): number {
+    return a + b
+}
+
+const subtractTwoNumbers = (a: number, b: number): number => {
+    return a - b
+}
+
+const num = addTwoNumbers(3, 9)
+subtractTwoNumbers(10, 7)
+// console.log(num)
+
+function addAllNumbers(items: number[]): void{
+    const total = items.reduce((a, c) => a + c, 0)
+    // console.log(total)
+}
+
+addAllNumbers([1, 2, 3, 4])
+
+// return type inference
+
+function formatGreeting(name: string, greeting: string): string {
+    return `${greeting}, ${name}`
+}
+
+const result = formatGreeting(`mario`, `hello`)
+
+
+//any type 
+
+let age: any
+
+age = 30
+age = false
