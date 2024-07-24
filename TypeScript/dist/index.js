@@ -45,5 +45,48 @@ function formatGreeting(name, greeting) {
 const result = formatGreeting(`mario`, `hello`);
 //any type 
 let age;
+let title;
 age = 30;
 age = false;
+title = {
+    hello: 'world'
+};
+// any type in arrays
+let things2 = ['hello', true, 30, null];
+things2.push({ id: 123 });
+// functions & any
+function addTogether(value) {
+    return value + value;
+}
+const resultOne = addTogether('hello');
+const resutlTwo = addTogether(3);
+const authorOne = { name: 'mario', avatar: '/img/mario.png' };
+const newPost = {
+    title: 'my first post',
+    body: 'something intersting',
+    tags: ['gaming', 'tech'],
+    create_at: new Date(),
+    author: authorOne
+};
+function createPost(post) {
+    console.log(`Created post ${post.title} by ${post.author.name}`);
+}
+createPost(newPost);
+//  with arrays
+let posts = [];
+posts.push(newPost);
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return [r, g, b];
+}
+const colorOne = getRandomColor();
+const colorTwo = getRandomColor();
+// console.log(colorOne, colorTwo)
+// union types
+let someid;
+someid = 1;
+someid = '2';
+let email = null;
+// type guard
