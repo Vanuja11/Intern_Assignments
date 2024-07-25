@@ -1,5 +1,5 @@
-import axios from 'axios';
 
+import { shuffleArray } from "./utils";
 
 export type Question = {
   category: string;
@@ -10,6 +10,11 @@ export type Question = {
   type: string;
 }
 
+
+/* Combining Types with Intersection (&) */
+export type QuestionState = Question & { answers: string[] };
+
+
 // enum
 export enum Difficulty {
   EASY = 'easy',
@@ -17,31 +22,28 @@ export enum Difficulty {
   HARD = 'hard'
 }
 
-export const fetchQuizQuestions = async (amount: number, difficulty: Difficulty) => {
+export const fetchQuizQuestions = async (
+  amount: number, 
+  difficulty: Difficulty
+) => {
   // const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
 
   const endpoint = `https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple`;
 
 
   const data = await (await fetch(endpoint)).json();
-  console.log()
-  console.log(data);
+  return data.results.map((question: Question) => (
+    {
+      ...question,
+      answers: [
+        ...question.incorrect_answers, 
+        question.correct_answer
+      ].sort(() => Math.random() - 0.5)
+    }
+  ));
 }
 
 
-// export const fetchQuizQuestions = async (amount: number, difficulty: Difficulty) => {
-//   const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
-
-//   try {
-//     const response = await axios.get(endpoint);
-//     const data = response.data;
-//     console.log(data);
-//     return data;
-//   } catch (error) {
-//     console.error('Error fetching quiz questions:', error);
-//     throw error;
-//   }
-// };
 
 
 
