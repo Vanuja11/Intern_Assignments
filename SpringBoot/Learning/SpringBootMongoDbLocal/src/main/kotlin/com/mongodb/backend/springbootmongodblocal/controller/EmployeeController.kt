@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/employees")
-class EmployeeController(private val service: EmployeeService) {
+class EmployeeController(private val employeeService: EmployeeService) {
 
     @ExceptionHandler(NoSuchElementException::class)
     fun handleNotFound(e: NoSuchElementException): ResponseEntity<String> =
@@ -28,15 +28,26 @@ class EmployeeController(private val service: EmployeeService) {
     fun handleBadRequest(e: IllegalArgumentException): ResponseEntity<String> =
         ResponseEntity(e.message, HttpStatus.BAD_REQUEST)
 
+//    @GetMapping
+//    fun getAllEmployees(): List<Employee> = service.findAll()
+
     @GetMapping
-    fun getAllEmployees(): List<Employee> = service.findAll()
+    fun getAllEmployees(): ResponseEntity<Any> {
+        val employees = employeeService.findAll()
+        return if (employees.isNotEmpty()) {
+            ResponseEntity.ok(employees)
+        } else {
+            ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: ${HttpStatus.NOT_FOUND.value()}" +
+                    "\nMessage: No employees found")
+        }
+    }
 
 //    @GetMapping("/{id}")
 //    fun getEmployeeById(@PathVariable id: String): Employee? = service.findById(id)
 
     @GetMapping("/{id}")
     fun getEmployeeById(@PathVariable id: String): ResponseEntity<Any> {
-        val employee = service.findById(id)
+        val employee = employeeService.findById(id)
         return if (employee != null) {
             ResponseEntity.ok(employee)
         } else {
@@ -59,7 +70,7 @@ class EmployeeController(private val service: EmployeeService) {
 
     @GetMapping("/email/{email}")
     fun getEmployeeByEmail(@PathVariable email: String): ResponseEntity<Any> {
-        val employee = service.findByEmail(email)
+        val employee = employeeService.findByEmail(email)
         return if (employee != null) {
             ResponseEntity.ok(employee)
         } else {
@@ -69,7 +80,7 @@ class EmployeeController(private val service: EmployeeService) {
     }
 
     @PostMapping
-    fun createEmployee(@RequestBody employee: Employee): Employee = service.save(employee)
+    fun createEmployee(@RequestBody employee: Employee): Employee = employeeService.save(employee)
 
 //    @DeleteMapping("/{id}")
 //    fun deleteEmployee(@PathVariable id: String) = service.deleteById(id)
@@ -88,9 +99,9 @@ class EmployeeController(private val service: EmployeeService) {
 
     @DeleteMapping("/{id}")
     fun deleteEmployee(@PathVariable id: String): ResponseEntity<Any> {
-        val employee = service.findById(id)
+        val employee = employeeService.findById(id)
         return if (employee != null) {
-            service.deleteById(id)
+            employeeService.deleteById(id)
             ResponseEntity.ok("Employee with id '$id' deleted successfully.")
         } else {
             ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: ${HttpStatus.NOT_FOUND.value()}" +
