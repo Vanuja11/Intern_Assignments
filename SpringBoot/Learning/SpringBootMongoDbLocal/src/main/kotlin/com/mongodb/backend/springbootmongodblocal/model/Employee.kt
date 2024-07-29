@@ -14,12 +14,14 @@ package com.mongodb.backend.springbootmongodblocal.model
 import org.springframework.data.mongodb.core.mapping.Document
 import java.time.LocalDate
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Field
 
 @Document(collection = "Employees")
 data class Employee(
     @Id
     val id: String? = null,
     val employee_id: String?,
+    @Field("employee_first_name")
     val employee_first_name: String = "FirstName",
     val employee_last_name: String = "LastName",
     val employee_gender: String = "Unknown",
