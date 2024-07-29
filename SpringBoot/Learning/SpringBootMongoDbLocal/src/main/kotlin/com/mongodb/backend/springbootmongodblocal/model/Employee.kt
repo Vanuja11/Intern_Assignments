@@ -19,19 +19,19 @@ import org.springframework.data.annotation.Id
 data class Employee(
     @Id
     val id: String? = null,
-    val employeeId: String?,
-    val employeeFirstName: String?,
-    val employeeLastName: String?,
-    val employeeGender: String?,
+    val employee_id: String?,
+    val employee_first_name: String = "FirstName",
+    val employee_last_name: String = "LastName",
+    val employee_gender: String = "Unknown",
     val dob: LocalDate?,
     val designation: String?,
-    val employeeAddress: EmployeeAddress?,
-    val email: String?,
-    val mobileNumber: String?,
+    val employee_address: EmployeeAddress?,
+    val email: String = "Unknown@gmail.com",
+    val mobile_number: String = "###-#######",
     val coe: String?,
     val faction: String?,
     val sbu: List<String>?,
-    val joinedDate: LocalDate?,
+    val joined_date: LocalDate?,
     val badges: List<EmployeeBadge>?
 )
 
