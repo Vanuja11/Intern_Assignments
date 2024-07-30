@@ -102,6 +102,6 @@ class EmployeeController(private val employeeService: EmployeeService) {
             ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: ${HttpStatus.NOT_FOUND.value()}" +
                     "\nMessage: Could not find an employee with the id '${id}'")
         }
-        
+
     }
 }
