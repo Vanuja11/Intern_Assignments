@@ -28,8 +28,6 @@ class EmployeeController(private val employeeService: EmployeeService) {
     fun handleBadRequest(e: IllegalArgumentException): ResponseEntity<String> =
         ResponseEntity(e.message, HttpStatus.BAD_REQUEST)
 
-//    @GetMapping
-//    fun getAllEmployees(): List<Employee> = service.findAll()
 
     @GetMapping
     fun getAllEmployees(): ResponseEntity<Any> {
@@ -42,9 +40,6 @@ class EmployeeController(private val employeeService: EmployeeService) {
         }
     }
 
-//    @GetMapping("/{id}")
-//    fun getEmployeeById(@PathVariable id: String): Employee? = service.findById(id)
-
     @GetMapping("/{id}")
     fun getEmployeeById(@PathVariable id: String): ResponseEntity<Any> {
         val employee = employeeService.findById(id)
@@ -55,18 +50,6 @@ class EmployeeController(private val employeeService: EmployeeService) {
                     "\nMessage: Could not find an employee with the id '${id}'")
         }
     }
-
-
-//    @GetMapping("/firstName/{employeeFirstName}")
-//    fun getEmployeeByFirstName(@PathVariable employeeFirstName: String): Employee? = service.findByEmployeeFirstName(employeeFirstName)
-
-//    @GetMapping("/findByFirstName/{firstName}")
-//    fun findByFirstName(@PathVariable firstName: String): Employee? {
-//        return service.findByEmployee_first_name(firstName)
-//    }
-
-//    @GetMapping("/email/{email}")
-//    fun getEmployeeByEmail(@PathVariable email: String): Employee? = service.findByEmail(email)
 
     @GetMapping("/email/{email}")
     fun getEmployeeByEmail(@PathVariable email: String): ResponseEntity<Any> {
@@ -80,25 +63,37 @@ class EmployeeController(private val employeeService: EmployeeService) {
     }
 
     @PostMapping
-    fun createEmployee(@RequestBody employee: Employee): Employee = employeeService.save(employee)
+    fun createEmployee(@RequestBody employee: Employee): ResponseEntity<Any> {
+        val existingEmployee = employeeService.findById(employee.id.toString())
+        return if (existingEmployee != null) {
+            ResponseEntity.status(HttpStatus.CONFLICT).body("Error: ${HttpStatus.CONFLICT.value()}" +
+                    "\nMessage: An employee with the ID '${employee.id}' already exists.")
+        } else {
+            val savedEmployee = employeeService.save(employee)
+            ResponseEntity.status(HttpStatus.CREATED).body(savedEmployee)
+        }
+    }
 
-//    @DeleteMapping("/{id}")
-//    fun deleteEmployee(@PathVariable id: String) = service.deleteById(id)
+    @PutMapping("/{id}")
+    fun updateEmployee(@PathVariable id: String, @RequestBody employee: Employee): ResponseEntity<Any> {
+        if (employee == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error: ${HttpStatus.BAD_REQUEST.value()}" +
+                    "\nMessage: Request body is missing.")
+        }
 
-//    @DeleteMapping("/{id}")
-//    fun deleteEmployee(@PathVariable id: String): ResponseEntity<Any> {
-//        return try {
-//            service.deleteById(id)
-//            ResponseEntity.ok("Employee with id '$id' deleted successfully.")
-//        } catch (ex: NoSuchElementException) {
-//            ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: ${HttpStatus.NOT_FOUND.value()}" +
-//                    "\nMessage: Could not find an employee with the id '${id}'")
-//        }
-//    }
-
+        val existingEmployee = employeeService.findById(id)
+        return if (existingEmployee != null) {
+            val updatedEmployee = employeeService.save(employee.copy(id = id))
+            ResponseEntity.ok(updatedEmployee)
+        } else {
+            ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: ${HttpStatus.NOT_FOUND.value()}" +
+                    "\nMessage: Could not find an employee with the id '${id}'")
+        }
+    }
 
     @DeleteMapping("/{id}")
     fun deleteEmployee(@PathVariable id: String): ResponseEntity<Any> {
+
         val employee = employeeService.findById(id)
         return if (employee != null) {
             employeeService.deleteById(id)
@@ -107,6 +102,6 @@ class EmployeeController(private val employeeService: EmployeeService) {
             ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: ${HttpStatus.NOT_FOUND.value()}" +
                     "\nMessage: Could not find an employee with the id '${id}'")
         }
+        
     }
-
 }
