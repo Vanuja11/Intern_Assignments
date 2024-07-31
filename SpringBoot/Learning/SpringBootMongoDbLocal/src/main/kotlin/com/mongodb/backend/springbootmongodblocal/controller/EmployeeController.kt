@@ -49,10 +49,10 @@ class EmployeeController(private val employeeService: EmployeeService) {
     fun getEmployeeById(@PathVariable id: String): ResponseEntity<Any> {
         val employee = employeeService.findById(id)
         return if (employee != null) {
-            logger.info("Successfully fetched employee with id $id")
+            logger.info("Successfully fetched employee with id - [{}]", id)
             ResponseEntity.ok(employee)
         } else {
-            logger.warn("No employee found with id $id")
+            logger.warn("No employee found with id - [{}]", id)
             ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: ${HttpStatus.NOT_FOUND.value()}" +
                     "\nMessage: Could not find an employee with the id '${id}'")
         }
@@ -62,10 +62,10 @@ class EmployeeController(private val employeeService: EmployeeService) {
     fun getEmployeeByEmployeeId(@PathVariable employeeId: String): ResponseEntity<Any> {
         val employee = employeeService.findbyemployeeId(employeeId)
         return if (employee != null) {
-            logger.info("Successfully fetched employee with employee-id $employeeId")
+            logger.info("Successfully fetched employee with employee-id - [{}]", employeeId)
             ResponseEntity.ok(employee)
         } else {
-            logger.warn("No employee found with employee-id $employeeId")
+            logger.warn("No employee found with employee-id - [{}]", employeeId)
             ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: ${HttpStatus.NOT_FOUND.value()}" +
                     "\nMessage: Could not find an employee with the employee-id '${employeeId}'")
         }
@@ -75,10 +75,10 @@ class EmployeeController(private val employeeService: EmployeeService) {
     fun getEmployeeByEmail(@PathVariable email: String): ResponseEntity<Any> {
         val employee = employeeService.findByEmail(email)
         return if (employee != null) {
-            logger.info("Successfully fetched employee with email $email")
+            logger.info("Successfully fetched employee with email - [{}]", email)
             ResponseEntity.ok(employee)
         } else {
-            logger.warn("No employee found with email $email")
+            logger.warn("No employee found with email - [{}]", email)
             ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: ${HttpStatus.NOT_FOUND.value()}" +
                     "\nMessage: Could not find an employee with the email of '${email}'")
         }
@@ -88,11 +88,11 @@ class EmployeeController(private val employeeService: EmployeeService) {
     fun createEmployee(@RequestBody employee: Employee): ResponseEntity<Any> {
         val existingEmployee = employeeService.findById(employee.id.toString())
         return if (existingEmployee != null) {
-            logger.warn("Attempt to create an employee with an existing ID: ${employee.id}")
+            logger.warn("Attempt to create an employee with an existing ID - [{}]", employee.id)
             ResponseEntity.status(HttpStatus.CONFLICT).body("Error: ${HttpStatus.CONFLICT.value()}" +
                     "\nMessage: An employee with the ID '${employee.id}' already exists.")
         } else {
-            logger.info("Successfully created employee with ID: ${employee.id}")
+            logger.info("Successfully created employee with ID - [{}]", employee.id)
             val savedEmployee = employeeService.save(employee)
             ResponseEntity.status(HttpStatus.CREATED).body(savedEmployee)
         }
@@ -107,11 +107,11 @@ class EmployeeController(private val employeeService: EmployeeService) {
 
         val existingEmployee = employeeService.findById(id)
         return if (existingEmployee != null) {
-            logger.info("Successfully updated employee with ID: ${employee.id}")
+            logger.info("Successfully updated employee with ID - [{}]", id)
             val updatedEmployee = employeeService.save(employee.copy(id = id))
             ResponseEntity.ok(updatedEmployee)
         } else {
-            logger.warn("No employee found with id $id")
+            logger.warn("No employee found with id - [{}]", id)
             ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: ${HttpStatus.NOT_FOUND.value()}" +
                     "\nMessage: Could not find an employee with the id '${id}'")
         }
@@ -122,11 +122,11 @@ class EmployeeController(private val employeeService: EmployeeService) {
 
         val employee = employeeService.findById(id)
         return if (employee != null) {
-            logger.info("Successfully deleted employee with ID: ${employee.id}")
+            logger.info("Successfully deleted employee with ID - [{}]", id)
             employeeService.deleteById(id)
             ResponseEntity.ok("Employee with id '$id' deleted successfully.")
         } else {
-            logger.warn("No employee found with id $id")
+            logger.warn("No employee found with id - [{}]", id)
             ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: ${HttpStatus.NOT_FOUND.value()}" +
                     "\nMessage: Could not find an employee with the id '${id}'")
         }
