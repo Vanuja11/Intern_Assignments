@@ -25,7 +25,7 @@ class EmployeeService(private val repository: EmployeeRepo) {
 
 //    fun findById(id: String): Employee = repository.findById(id)
 
-//    fun findByEmployee_id(employee_id: String): Employee? = repository.findByEmployee_id(employee_id)
+    fun findbyemployeeId(employeeId: String): Employee? = repository.findByEmployeeId(employeeId)
 
     fun findByEmail(email: String): Employee? = repository.findByEmail(email)
 

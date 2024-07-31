@@ -58,6 +58,19 @@ class EmployeeController(private val employeeService: EmployeeService) {
         }
     }
 
+    @GetMapping("/employeeId/{employeeId}")
+    fun getEmployeeByEmployeeId(@PathVariable employeeId: String): ResponseEntity<Any> {
+        val employee = employeeService.findbyemployeeId(employeeId)
+        return if (employee != null) {
+            logger.info("Successfully fetched employee with employee-id $employeeId")
+            ResponseEntity.ok(employee)
+        } else {
+            logger.warn("No employee found with employee-id $employeeId")
+            ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: ${HttpStatus.NOT_FOUND.value()}" +
+                    "\nMessage: Could not find an employee with the employee-id '${employeeId}'")
+        }
+    }
+
     @GetMapping("/email/{email}")
     fun getEmployeeByEmail(@PathVariable email: String): ResponseEntity<Any> {
         val employee = employeeService.findByEmail(email)
@@ -118,4 +131,13 @@ class EmployeeController(private val employeeService: EmployeeService) {
                     "\nMessage: Could not find an employee with the id '${id}'")
         }
     }
+
+
+//        @GetMapping("/firstName/{employeeFirstName}")
+//    fun getEmployeeByFirstName(@PathVariable employeeFirstName: String): Employee? = employeeService.findByEmployeeFirstName(employeeFirstName)
+
+//    @GetMapping("/findByFirstName/{firstName}")
+//    fun findByFirstName(@PathVariable firstName: String): Employee? {
+//        return employeeService.findByEmployeeFirstName(firstName)
+//    }
 }

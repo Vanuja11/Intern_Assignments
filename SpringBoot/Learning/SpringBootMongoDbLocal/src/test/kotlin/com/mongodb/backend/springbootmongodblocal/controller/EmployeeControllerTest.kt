@@ -95,7 +95,7 @@ internal class EmployeeControllerTest @Autowired constructor(
             // given
             val newEmployee = Employee(
                 id = "newEmployeeTesting",
-                employee_id = "001001",
+                employeeId = "001001",
                 employee_first_name = "Chirantha",
                 employee_last_name = "Pitigala",
                 employee_gender = "male",
@@ -150,7 +150,7 @@ internal class EmployeeControllerTest @Autowired constructor(
             // given
             val invalidEmployee = Employee(
                 id = "5e4d604991b6134a75045ecd",
-                employee_id = "001001",
+                employeeId = "001001",
                 employee_first_name = "Chirantha",
                 employee_last_name = "Pitigala",
                 employee_gender = "male",
@@ -196,7 +196,7 @@ internal class EmployeeControllerTest @Autowired constructor(
             // given
             val updateEmployee = Employee(
                 id = "5e4d604991b6134a75045ecd",
-                employee_id = "001001",
+                employeeId = "001001",
                 employee_first_name = "Chirantha",
                 employee_last_name = "Pitigala",
                 employee_gender = "male",
@@ -245,7 +245,7 @@ internal class EmployeeControllerTest @Autowired constructor(
             // given
             val invalidEmployee = Employee(
                 id = "DOES_NOT_EXIST",
-                employee_id = "001001",
+                employeeId = "001001",
                 employee_first_name = "Chirantha",
                 employee_last_name = "Pitigala",
                 employee_gender = "male",
@@ -324,7 +324,7 @@ internal class EmployeeControllerTest @Autowired constructor(
 
             val toBeDeletedEmployee = Employee(
                 id = "TO_BE_DELETED",
-                employee_id = "001001",
+                employeeId = "001001",
                 employee_first_name = "Chirantha",
                 employee_last_name = "Pitigala",
                 employee_gender = "male",

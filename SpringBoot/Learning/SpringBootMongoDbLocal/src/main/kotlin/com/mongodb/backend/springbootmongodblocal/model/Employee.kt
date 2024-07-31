@@ -20,7 +20,8 @@ import org.springframework.data.mongodb.core.mapping.Field
 data class Employee(
     @Id
     val id: String? = null,
-    val employee_id: String?,
+//    @Field("employeeId")
+    val employeeId: String?,
     @Field("employee_first_name")
     val employee_first_name: String = "FirstName",
     val employee_last_name: String = "LastName",
