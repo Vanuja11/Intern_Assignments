@@ -32,10 +32,9 @@ const multiplication = new Multiplication();
 console.log(multiplication.calculate(5, 5));
 const division = new Division();
 console.log(division.calculate(100, 20));
-const divideByZero = new Division();
-try {
-    console.log(divideByZero.calculate(100, 0));
-}
-catch (error) {
-    console.log(error.message);
-}
+// const divideByZero = new Division()
+// try {
+//     console.log(divideByZero.calculate(100, 0))
+// } catch (error) {
+//     console.log(error.message)
+// }
