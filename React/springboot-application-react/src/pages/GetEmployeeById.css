@@ -1,0 +1,9 @@
+.employee-id-form {
+  background-color: red;
+  padding: 10px;
+  justify-content: center;
+}
+.input-field-container {
+  display: flex;
+  justify-content: center;
+}
