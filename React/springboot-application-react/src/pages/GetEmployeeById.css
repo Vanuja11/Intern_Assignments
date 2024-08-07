@@ -55,3 +55,22 @@
   background-color: #a04545; 
   transform: scale(1.05); 
 }
+
+.submit-btn {
+  background-color: #4caf5eda; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  border-radius: 4px;
+}
+
+.submit-btn:hover {
+  background-color: #45a05f; 
+  transform: scale(1.05); 
+}
