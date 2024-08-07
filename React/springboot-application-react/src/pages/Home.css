@@ -1,9 +1,12 @@
 .btn-container {
-  background-color: rgba(255, 0, 0, 0.163);
+  background-color: rgba(100, 100, 100, 0.431);
   display: flex;
   justify-content: center;
   padding: 20px;
-  margin-bottom: 50px;
+  margin: 50px;
+  margin-top: 0px;
+  border-radius: 20px;
+
   /* flex-direction: column; */
 }
 
@@ -21,8 +24,21 @@
   transform: scale(1.1);
 }
 
+.get-btn:hover {
+  background-color: #80ff41;
+}
+.create-btn:hover {
+  background-color: #ffe341;
+}
+.update-btn:hover {
+  background-color: #41a6ff;
+}
+.delete-btn:hover {
+  background-color: #ff4141;
+}
+
 .subHeading {
-  font-size: 30px;
+  font-size: 40px;
   margin: 10px;
   margin-left: 55px;
 }

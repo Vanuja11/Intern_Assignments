@@ -37,7 +37,7 @@ const GetAllEmployees = () => {
           employees.map((employee: any) => (
             <div key={employee.id} className="singleAllEmployee">
               <p className="details">
-                id: {employee.employeeId}.<br />
+                id: {employee.employeeId}<br />
                 First Name: {employee.employee_first_name}<br />
                 Email: {employee.email}
               </p>
