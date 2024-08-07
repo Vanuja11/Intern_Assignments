@@ -12,15 +12,19 @@ interface Employee {
 const GetEmployeeByEmail: React.FC = () => {
   const [employee, setEmployee] = useState<Employee | null>(null);
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const getEmployeeByEmail = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
+      setEmployee(null)
+setMessage("")
       const response = await axios.get(`http://localhost:8081/api/employees/email/${email}`);
       console.log(response.data);
       setEmployee(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
+      setMessage(`Error occured`)
     //   if (error.response && error.response.data) {
     //     alert(error.response.data);
     //   }
@@ -39,6 +43,7 @@ const GetEmployeeByEmail: React.FC = () => {
         <form className="employee-id-form" onSubmit={getEmployeeByEmail}>
           <input
             type="text"
+            name="email"
             className="input-field"
             placeholder="Enter email"
             onChange={handleChange}
@@ -48,6 +53,7 @@ const GetEmployeeByEmail: React.FC = () => {
             Submit
           </button>
         </form>
+        {message && <div className="message">{message}</div>}
         {employee ? (
           <div className="allEmployeesContainer">
             <div key={employee.id} className="singleAllEmployee">

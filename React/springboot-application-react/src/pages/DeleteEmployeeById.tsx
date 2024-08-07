@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-// import "./DeleteEmployeeById.css";
+import "./DeleteEmployeeById.css";
 
 const DeleteEmployeeById = () => {
   const [id, setId] = useState("");
@@ -10,11 +10,12 @@ const DeleteEmployeeById = () => {
     e.preventDefault();
     try {
       const response = await axios.delete(
-        `http://localhost:8081/api/employees/${id}`
+        `http://localhost:8081/api/employees/employeeId/${id}`
       );
-      setMessage(`Successfully deleted employee with ID: ${id}`);
+      setMessage(`Successfully deleted employee with ID:     ${id}`);
     } catch (error) {
       console.error("Error deleting employee:", error);
+      setMessage(`Error occured`)
     }
   };
 

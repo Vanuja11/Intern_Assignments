@@ -73,26 +73,29 @@ import React, { useState } from "react";
 import "./GetEmployeeById.css";
 import axios from "axios";
 
-// Define the type for the employee object
 interface Employee {
   id: string;
   employeeId: string;
   employee_first_name: string;
-  // Add other fields as necessary
 }
 
 const GetEmployeeById: React.FC = () => {
   const [employee, setEmployee] = useState<Employee | null>(null);
   const [id, setId] = useState("");
+  const [message, setMessage] = useState("");
 
   const getEmployee = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
+      setEmployee(null);
+      setMessage("");
       const response = await axios.get(`http://localhost:8081/api/employees/employeeId/${id}`);
       console.log(response.data);
       setEmployee(response.data);
+      setMessage(`Employee found`)
     } catch (error) {
       console.error("Error fetching data:", error);
+      setMessage(`Error occured`)
       // if (error.response && error.response.data) {
       //   alert(error.response.data);
       // }
@@ -121,6 +124,7 @@ const GetEmployeeById: React.FC = () => {
             Submit
           </button>
         </form>
+        {message && <div className="message">{message}</div>}
         {employee ? (
           <div className="allEmployeesContainer">
             <div key={employee.id} className="singleAllEmployee">
