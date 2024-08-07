@@ -99,6 +99,21 @@ class EmployeeController(private val employeeService: EmployeeService) {
         }
     }
 
+    @PostMapping("/employeeId")
+    fun createEmployeeByEmployeeId(@RequestBody employee: Employee): ResponseEntity<Any> {
+        val existingEmployee = employeeService.findbyemployeeId(employee.employeeId.toString())
+        return if (existingEmployee != null) {
+            logger.warn("Attempt to create an employee with an existing EMPLOYEE-ID: [{}]", employee.employeeId)
+            ResponseEntity.status(HttpStatus.CONFLICT).body("Error: ${HttpStatus.CONFLICT.value()}" +
+                    "\nMessage: An employee with the Employee-ID '${employee.employeeId}' already exists.")
+        } else {
+            logger.info("Successfully created employee with Employee-ID: [{}]", employee.employeeId)
+            val savedEmployee = employeeService.save(employee)
+            ResponseEntity.status(HttpStatus.CREATED).body(savedEmployee)
+        }
+    }
+
+
     @PutMapping("/{id}")
     fun updateEmployee(@PathVariable id: String, @RequestBody employee: Employee): ResponseEntity<Any> {
         if (employee == null) {
@@ -132,6 +147,21 @@ class EmployeeController(private val employeeService: EmployeeService) {
                     "\nMessage: Could not find an employee with the id '${id}'")
         }
     }
+
+    @DeleteMapping("/employeeId/{employeeId}")
+    fun deleteEmployeeByEmployeeId(@PathVariable employeeId: String): ResponseEntity<Any> {
+        val employee = employeeService.findbyemployeeId(employeeId)
+        return if (employee != null) {
+            employeeService.deleteByemployeeId(employee.employeeId.toString())
+            logger.info("Successfully deleted employee with employee-id - [{}]", employeeId)
+            ResponseEntity.ok("Employee with employee-id '$employeeId' deleted successfully.")
+        } else {
+            logger.warn("No employee found with employee-id - [{}]", employeeId)
+            ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error: ${HttpStatus.NOT_FOUND.value()}" +
+                    "\nMessage: Could not find an employee with the employee-id '${employeeId}'")
+        }
+    }
+
 
 
 //        @GetMapping("/firstName/{employeeFirstName}")

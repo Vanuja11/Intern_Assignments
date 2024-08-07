@@ -32,4 +32,6 @@ class EmployeeService(private val repository: EmployeeRepo) {
     fun save(employee: Employee): Employee = repository.save(employee)
 
     fun deleteById(id: String) = repository.deleteById(id)
+
+    fun deleteByemployeeId(employeeId: String): Employee? = repository.deleteByEmployeeId(employeeId)
 }

@@ -14,5 +14,7 @@ interface EmployeeRepo : MongoRepository<Employee, String> {
     
     fun findByDob(date: LocalDate):Employee?
 
-    fun findByEmail(email: String):Employee?
+    fun findByEmail(email: String):Employee
+
+    fun deleteByEmployeeId(employeeId: String): Employee?
 }
