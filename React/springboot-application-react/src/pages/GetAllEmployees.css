@@ -1,3 +1,15 @@
-.table {
-    margin: 20px;
+.allEmployeesContainer {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.singleAllEmployee {
+  font-size: 20px;
+  padding: 5px 10px;
+  background-color: rgb(247, 255, 131);
+  margin-bottom: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  border-radius: 10px;
 }

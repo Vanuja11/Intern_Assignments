@@ -32,18 +32,17 @@ const GetAllEmployees = () => {
     <>
       <div className="heading">Get All Employees</div>
 
-      <div className="table">
-        {employees
-          ? employees.map((employees: any) => (
-              <div key={employees.id}>
-                <p>
-                  id: {employees.employeeId}.<br />
-                  First Name: {employees.employee_first_name}
-                </p>
-                {/* <p>{crypto}</p> */}
-              </div>
-            ))
-          : null}
+      <div className="allEmployeesContainer">
+          {employees
+            ? employees.map((employees: any) => (
+                <div key={employees.id} className="singleAllEmployee">
+                  <p>
+                    id: {employees.employeeId}.<br />
+                    First Name: {employees.employee_first_name}
+                  </p>
+                </div>
+              ))
+            : null}
       </div>
     </>
   );
