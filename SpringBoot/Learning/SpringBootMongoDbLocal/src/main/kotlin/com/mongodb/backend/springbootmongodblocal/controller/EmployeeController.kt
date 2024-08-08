@@ -124,6 +124,7 @@ class EmployeeController(private val employeeService: EmployeeService) {
         val existingEmployee = employeeService.findbyemployeeId(id)
         return if (existingEmployee != null) {
             logger.info("Successfully updated employee with ID - [{}]", id)
+            employeeService.deleteByemployeeId(employee.employeeId.toString())
             val updatedEmployee = employeeService.save(employee.copy(id = id))
             ResponseEntity.ok(updatedEmployee)
         } else {

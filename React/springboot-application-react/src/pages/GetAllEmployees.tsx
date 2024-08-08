@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./GetAllEmployees.css";
+import { FiRefreshCcw } from "react-icons/fi";
 
 const GetAllEmployees = () => {
-  
   interface employeeModel {
     employeeId: string;
     employee_first_name: string;
@@ -43,13 +43,32 @@ const GetAllEmployees = () => {
     fetchData();
   }, []);
 
+  async function fetchData() {
+    try {
+      setLoading(true); // Set loading to true when the request starts
+      const response = await axios.get("http://localhost:8081/api/employees");
+      setEmployees(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false); // Set loading to false when the request completes
+    }
+  }
+
   return (
     <>
       <div className="heading">Get All Employees</div>
 
       <div className="allEmployeesContainer">
+        <div>
+          <button className="refresh-btn" onClick={fetchData}>
+            {" "}
+            <span className="refresh-btn-txt">Refresh</span>
+            <FiRefreshCcw />
+          </button>
+        </div>
         {loading ? (
-          <div className="loading">Loading...</div> // Loading message or spinner
+          <div className="loading">Loading...</div>
         ) : (
           // employees.map((employee: any) => (
           //   <div key={employee.id} className="singleAllEmployee">
@@ -83,31 +102,30 @@ const GetAllEmployees = () => {
           //   </div>
           // ))
 
-        
           <div className="table-container">
-        <table className="employee-table">
-          <thead>
-            <tr>
-              <th>First Name</th>
-              <th>SurName</th>
-              <th>Gender</th>
-              <th>Position</th>
-            </tr>
-          </thead>
-          <tbody>
-            {employees.map((employee) => (
-              <tr key={employee.employee_first_name}>
-                <td>{employee.employee_first_name}</td>
-                <td>{employee.employee_last_name}</td>
-                <td>{employee.employee_gender}</td>
-                <td>{employee.designation}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-
+            <table className="employee-table">
+              <thead>
+                <tr>
+                  <th>Employee ID</th>
+                  <th>First Name</th>
+                  <th>SurName</th>
+                  <th>Gender</th>
+                  <th>Position</th>
+                </tr>
+              </thead>
+              <tbody>
+                {employees.map((employee) => (
+                  <tr key={employee.employee_first_name}>
+                    <td>{employee.employeeId}</td>
+                    <td>{employee.employee_first_name}</td>
+                    <td>{employee.employee_last_name}</td>
+                    <td>{employee.employee_gender}</td>
+                    <td>{employee.designation}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </>

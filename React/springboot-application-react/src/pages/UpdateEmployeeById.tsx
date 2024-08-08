@@ -23,7 +23,7 @@ const UpdateEmployeeById = () => {
     console.log(data);
     axios
       .put(
-        `http://localhost:8081/api/employees/employeeId/${data.employeeId}`,
+        `http://localhost:8081/api/employees/${data.employeeId}`,
         data
       )
       .then((response) => {
