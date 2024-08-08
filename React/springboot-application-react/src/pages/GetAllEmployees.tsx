@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./GetAllEmployees.css";
 
 const GetAllEmployees = () => {
+  
   interface employeeModel {
     employeeId: string;
     employee_first_name: string;
@@ -21,14 +22,6 @@ const GetAllEmployees = () => {
     },
   ]);
   const [loading, setLoading] = useState(true);
-
-  /* 
-  employeeId
-  employee_first_name
-  employee_last_name
-  employee_gender
-  designation
- */
 
   useEffect(() => {
     console.log(employees);
