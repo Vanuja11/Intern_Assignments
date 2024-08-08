@@ -121,7 +121,7 @@ class EmployeeController(private val employeeService: EmployeeService) {
                     "\nMessage: Request body is missing.")
         }
 
-        val existingEmployee = employeeService.findById(id)
+        val existingEmployee = employeeService.findbyemployeeId(id)
         return if (existingEmployee != null) {
             logger.info("Successfully updated employee with ID - [{}]", id)
             val updatedEmployee = employeeService.save(employee.copy(id = id))
