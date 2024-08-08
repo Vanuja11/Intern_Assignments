@@ -1,0 +1,9 @@
+.createForm {
+  background-color: rgb(116, 114, 214);
+  padding: 20px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 20px 80px;
+  font-size: 20px;
+}

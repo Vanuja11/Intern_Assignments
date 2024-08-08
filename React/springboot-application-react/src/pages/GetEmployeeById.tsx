@@ -129,7 +129,7 @@ const GetEmployeeById: React.FC = () => {
           <div className="allEmployeesContainer">
             <div key={employee.id} className="singleAllEmployee">
               <p>
-                id: {employee.employeeId}.<br />
+                id: {employee.employeeId}<br />
                 First Name: {employee.employee_first_name}
               </p>
             </div>

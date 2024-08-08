@@ -1,6 +1,7 @@
 .allEmployeesContainer {
-  margin: 20px;
-  display: grid;
+  /* margin: 20px; */
+  display: flex;
+  justify-content: center;
   grid-template-columns: 1fr 1fr;
 }
 
@@ -15,5 +16,54 @@
 }
 
 .details {
-    line-height: 30px;
+  line-height: 30px;
+}
+.table {
+  font-size: 20px;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Styling for the table */
+.employee-table {
+  /* width: 80%; */
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 18px;
+  text-align: left;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for table headers */
+.employee-table thead tr {
+  background-color: #7f009885;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Styling for table body rows */
+.employee-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+/* Styling for alternating row colors */
+.employee-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+/* Styling for rows on hover */
+.employee-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Padding for table cells */
+.employee-table th,
+.employee-table td {
+  padding: 12px 15px;
 }
