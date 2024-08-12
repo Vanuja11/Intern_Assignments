@@ -74,9 +74,11 @@ import "./GetEmployeeById.css";
 import axios from "axios";
 
 interface Employee {
-  id: string;
   employeeId: string;
   employee_first_name: string;
+  employee_last_name: string;
+  employee_gender: string;
+  designation: string;
 }
 
 const GetEmployeeById: React.FC = () => {
@@ -89,13 +91,15 @@ const GetEmployeeById: React.FC = () => {
     try {
       setEmployee(null);
       setMessage("");
-      const response = await axios.get(`http://localhost:8081/api/employees/employeeId/${id}`);
+      const response = await axios.get(
+        `http://localhost:8081/api/employees/employeeId/${id}`
+      );
       console.log(response.data);
       setEmployee(response.data);
-      setMessage(`Employee found`)
+      setMessage(`Employee found`);
     } catch (error) {
       console.error("Error fetching data:", error);
-      setMessage(`Error occured`)
+      setMessage(`Error occured`);
       // if (error.response && error.response.data) {
       //   alert(error.response.data);
       // }
@@ -127,10 +131,22 @@ const GetEmployeeById: React.FC = () => {
         {message && <div className="message">{message}</div>}
         {employee ? (
           <div className="allEmployeesContainer">
-            <div key={employee.id} className="singleAllEmployee">
+            <div key={employee.employeeId} className="singleAllEmployee">
               <p>
-                id: {employee.employeeId}<br />
-                First Name: {employee.employee_first_name}
+                <span className="bold">Employee Id: </span>
+                {employee.employeeId}
+                <br />
+                <span className="bold">First Name: </span>
+                {employee.employee_first_name}
+                <br />
+                <span className="bold">Last Name: </span>{" "}
+                {employee.employee_last_name}
+                <br />
+                <span className="bold">Gender: </span>
+                {employee.employee_gender}
+                <br />
+                <span className="bold">Designation: </span>
+                {employee.designation}
               </p>
             </div>
           </div>

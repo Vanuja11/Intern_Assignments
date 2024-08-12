@@ -3,10 +3,11 @@ import axios from "axios";
 
 // Define the type for the employee object
 interface Employee {
-  id: string;
   employeeId: string;
   employee_first_name: string;
-  // Add other fields as necessary
+  employee_last_name: string;
+  employee_gender: string;
+  designation: string;
 }
 
 const GetEmployeeByEmail: React.FC = () => {
@@ -22,6 +23,7 @@ setMessage("")
       const response = await axios.get(`http://localhost:8081/api/employees/email/${email}`);
       console.log(response.data);
       setEmployee(response.data);
+      setMessage(`Employee found`);
     } catch (error) {
       console.error("Error fetching data:", error);
       setMessage(`Error occured`)
@@ -56,10 +58,22 @@ setMessage("")
         {message && <div className="message">{message}</div>}
         {employee ? (
           <div className="allEmployeesContainer">
-            <div key={employee.id} className="singleAllEmployee">
+            <div key={employee.employeeId} className="singleAllEmployee">
               <p>
-                id: {employee.employeeId}.<br />
-                First Name: {employee.employee_first_name}
+              <span className="bold">Employee Id: </span>
+                {employee.employeeId}
+                <br />
+                <span className="bold">First Name: </span>
+                {employee.employee_first_name}
+                <br />
+                <span className="bold">Last Name: </span>{" "}
+                {employee.employee_last_name}
+                <br />
+                <span className="bold">Gender: </span>
+                {employee.employee_gender}
+                <br />
+                <span className="bold">Designation: </span>
+                {employee.designation}
               </p>
             </div>
           </div>
