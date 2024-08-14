@@ -1,0 +1,85 @@
+.allEmployeesContainer {
+  /* margin: 20px; */
+  display: flex;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+.singleAllEmployee {
+  font-size: 20px;
+  padding: 0px 20px;
+  background-color: rgb(247, 255, 131);
+  margin-bottom: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  border-radius: 10px;
+}
+
+.details {
+  line-height: 30px;
+}
+.table {
+  font-size: 20px;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Styling for the table */
+.employee-table {
+  /* width: 80%; */
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 18px;
+  text-align: left;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for table headers */
+.employee-table thead tr {
+  background-color: #7f009885;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Styling for table body rows */
+.employee-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+/* Styling for alternating row colors */
+.employee-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+/* Styling for rows on hover */
+.employee-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Padding for table cells */
+.employee-table th,
+.employee-table td {
+  padding: 12px 15px;
+  cursor:default
+}
+
+.refresh-btn {
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.refresh-btn:hover {
+  transform: scale(1.1);
+}
+
+.refresh-btn-txt {
+  padding: 5px 10px;
+}

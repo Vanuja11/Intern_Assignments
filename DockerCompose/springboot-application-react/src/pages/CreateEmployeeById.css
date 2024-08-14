@@ -1,0 +1,71 @@
+
+.createFormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.createForm {
+  background-color: rgb(116, 114, 214);
+  padding: 20px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 20px 80px;
+  font-size: 20px;
+  width: 500px;
+}
+
+
+
+
+/* General styling for the form container */
+.createFormContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Styling for the form */
+.createForm {
+  width: 600px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the form labels */
+.formLabel {
+  display: flex;
+  gap: 15px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* Styling for the form inputs */
+.formInput {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Styling for the form button */
+.formButton {
+  background-color: #009879;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.formButton:hover {
+  background-color: #007a63;
+}

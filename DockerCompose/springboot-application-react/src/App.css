@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+.App {
+    font-family: "Neucha", cursive;
+}
+
+.heading {
+    text-align: center;
+    font-size: 60px;
+}
